@@ -1,0 +1,25 @@
+# To ensure app dependencies are ported from your virtual environment/host machine into your container, run 'pip freeze > requirements.txt' in the terminal to overwrite this file
+Brotli==1.0.9
+certifi==2021.10.8
+click==8.0.4
+dash==2.3.0
+dash-bootstrap-components==1.0.3
+dash-core-components==2.0.0
+dash-html-components==2.0.0
+dash-table==5.0.0
+et-xmlfile==1.1.0
+Flask==2.0.3
+Flask-Compress==1.11
+itsdangerous==2.1.1
+Jinja2==3.0.3
+MarkupSafe==2.1.1
+numpy==1.22.3
+openpyxl==3.0.9
+pandas==1.4.1
+plotly==5.6.0
+python-dateutil==2.8.2
+pytz==2021.3
+six==1.16.0
+tenacity==8.0.1
+Werkzeug==2.0.3
+xlrd==2.0.1
