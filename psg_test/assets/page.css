@@ -1,0 +1,175 @@
+#graph{
+    background-color:aqua ;
+    color: white;
+    margin-left: 90%;
+    margin-top: 0%;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: larger;
+    font-weight: bolder;
+    display: inline-block;
+    border-radius: 25px;
+    background-color: #1a548a;
+    padding: 10px;
+    width: 80px;
+    height: 14px;
+}
+#head{
+  text-align: center;
+  margin-left: auto;
+  /* bold-italic: 200px ; */
+  font-size: larger;
+  font-weight: bolder;
+
+  font-size: 01cm;
+  font-family: critter
+}
+#our-table{
+  margin-top: 0%;
+  font-size: larger;
+  font-weight: 100%;
+  font-weight: bolder;
+  text-size-adjust: 25px;
+  width: 60%; 
+  margin: auto;
+  
+}
+
+#save_to_csv{
+  margin-top: 0%;
+  border-radius: 21px;
+  background-color: #042dff; /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  margin-left: 07cm;
+   width:06cm;
+    height:30px;
+    background-color: #1a548a;
+}
+
+#display_csv {
+    margin-top: 0%;
+    border-radius: 21px;
+    background-color: #1a548a;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    margin-left: 10cm;
+    width:06cm;
+     height:30px;
+     background-color: #1a548a;
+  }
+
+  #show_table  td{
+    border: 1px solid rgb(21, 201, 66);
+    text-align: center;
+    padding: 8px;
+    font-size: larger;
+    height:25px;
+background-color: beige;    
+  }
+
+  #show_table  th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    font-size: larger;
+    font-weight: bolder;
+    background-color: #1a548a;
+    color: white;
+  }
+
+#read_New_Data{
+    margin-top: 0%;
+    border-radius: 21px;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#tab{
+    background-color:rgb(0, 255, 136) ;
+    color: white;
+    margin-left: 90%;
+    margin-top: 0%;
+    color: white;
+    font-size: larger;
+    font-weight: bolder;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 25px;
+    /* background: #73AD21; */
+    padding: 10px;
+    background-color: #1a548a;
+    width: 80px;
+    height: 14px;
+}
+
+#my_dropdown{
+    position: absolute;
+    width: 25%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+#page-content{
+    background-image: url(./bhel_logo.jpg);
+    background-size: 10% 40%;
+    background-repeat: no-repeat;
+    height: 195px;
+    margin-left: 02%;
+}
+
+body
+{
+	background-image:url(./imageedit_2_5082164825.png);
+/* background-color:#bbe3ef;  */
+	background-repeat: repeat;
+  background-size:cover ;
+  }
+
+ #my_graph{
+  height: 16cm;
+  margin-left: 02%;
+ }
+
+ #read_plant_data {
+  padding-top: 4px;
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: larger;
+  font-weight: bolder;
+  background-color: #196eb9;
+  margin-left: 12cm;
+  width:06cm;
+  background-color: #1a548a;
+  height:30px;
+  color: white;
+  border-radius: 20px;
+
+ }

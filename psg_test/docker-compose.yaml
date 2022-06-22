@@ -1,0 +1,68 @@
+version: '3.5'
+services:
+  database:
+    image: postgres
+    ports:
+      - "5432:5432"
+    restart: always
+    environment:
+      POSTGRES_USER: docker1
+      POSTGRES_PASSWORD: bhel@123
+      POSTGRES_DB: exampledb
+    volumes:
+       - database:/data/database
+    # network_mode: host
+    # networks:
+    #   - front
+
+  # pgadmin:
+  #   container_name: pgadmin_container
+  #   image: dpage/pgadmin4
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+  #     PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+  #     PGADMIN_CONFIG_SERVER_MODE: 'False'
+  #   volumes:
+  #      - pgadmin:/var/lib/pgadmin
+  #   depends_on:
+  #     - database
+  #   ports:
+  #     - "${PGADMIN_PORT:-5050}:80"
+  #   network_mode: host
+  #   restart: always
+
+  adminer:
+    image: adminer
+    restart: always
+    depends_on:
+      - database
+    ports:
+      - 8080:8080
+    volumes:
+       - adminer:/var/lib/adminer
+    # network_mode: host
+
+
+  postgres_dash_app:
+    image: kranthikp/psg_app:1.0
+    restart: always
+    depends_on:
+      - database
+    ports:
+      - 1999:1999
+    environment:
+      DB_HOST: 'database'
+      DB_NAME: 'exampledb'
+      DB_USER: 'docker1'
+      DB_PW: 'bhel@123'
+    # network_mode: host
+    # networks:
+    #   - front
+
+volumes:
+    database:
+    adminer:
+
+# networks:
+#   front:
+#     driver: none
