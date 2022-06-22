@@ -1,0 +1,12 @@
+
+1) launch cmd prompt window for each of the server and client(s)
+2) In cmd prompt window, enter the ".exe" file location in the pc drive
+3) Type the following commands
+
+3a) For server:
+modbus_cm.exe 4 1 localhost:502 1200 4 1200 4
+
+3b) For client(s):
+modbus_cm3.exe 4 1 localhost:502 1200 2 1204 2
+
+modbus_cm3.exe 4 1 localhost:502 1204 2 1200 2

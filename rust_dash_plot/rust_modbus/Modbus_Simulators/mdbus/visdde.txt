@@ -1,0 +1,52 @@
+Visual Basic DDE and Mdbus
+
+The following demonstrates the procedure to obtain coil data from mdbus 
+or have mdbus send a coil command in Master Mode or set its internal data 
+in Slave Mode.  The DDE section of Mdbus details the DDE procedure for the 
+other data types.
+
+1. To obtain Coil Data from Mdbus
+
+Under program control, the following code will bring back coil data from 
+coils 1,2 and place the data into textbox text1.  The different coil data 
+will be separated by commas.
+
+text1.linktopic="mdbus|poke"
+text1.linkitem="coil 0001 2"
+text1.linkmode=2
+text1.linkrequest
+
+Alternately, the properties of text1 could be set as follows:
+
+set link topic to mdbus|poke
+set linkitem to coil 0001 2
+set linkmode to 2
+
+Then under program control, execute the statement text1.linkrequest
+
+2.  To turn a coil on or off with Mdbus
+
+Under program control, the following code will take the data in 
+textbox text1 (either 0 or 1) and send it to coil 1.
+
+text1.linktopic="mdbus|poke"
+text1.linkitem="coil 0001"
+text1.linkmode=2
+text1.linkpoke
+
+Alternately, the properties of text1 could be set as follows:
+
+set link topic to mdbus|poke
+set linkitem to coil 0001
+set linkmode to 2
+
+Then under program control, execute the statement text1.linkpoke
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Please Note!  These examples should not be implemented as shown!
+The link topic and link item should never be executed more than
+once (ie. in an initialize routine or set up with the properties
+of the textbox). If they are, a memory leak will occur in Visual
+Basic.
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+

@@ -1,0 +1,100 @@
+FIFO Notes
+
+The 16550 serial UART used for serial communications in a PC has FIFO buffers for both transmit (Tx) and receive (Rx) data.
+
+The size of the Tx FIFO affects the raising and lowering of RTS which can be used for Radio, RS-485, and RS-232 flow control.  If RTS is not being used (RTS TX DELAY in Mdbus is 0), it is not important.
+
+The size of the Rx FIFO affects message timeout and the ability of Mdbus to determine the end of messages in Slave and Monitor modes (should be set as low as possible for this - preferably 1).
+
+The maximum buffer size is 16 characters and is configurable via the Control Panel.  The FIFO buffers can also be disabled in which case the buffer size is 1.  Windows 95/98, NT, and 2000 handle the viewing and changing of these buffer sizes differently.  The buffer size cannot be changed directly via software using the Windows Application Interface (API).  Mdbus has made the FIFO buffer sizes configuration items.  A user of Mdbus has to obtain the size of the buffers and enter the values in the Mdbus Configuration Window.  Mdbus uses these configured values for timing.
+
+The following is the procedure under Windows 95/98 to view/change the Tx and Rx FIFO buffer size.
+
+1.   Click on Start.
+2.   Click on Settings.
+3.   Click on Control Panel.
+4.   Double Click on System Icon.
+5.   Click on the Device Manager Tab.
+6.   Double Click on Ports (COM & LPT).
+7.   Double Click on the Communications Port being used.
+8.   Click on Port Settings Tab.
+9.   Click the Advanced Pushbutton.
+10. Either note the present size of the buffers, change the sizes of the buffers, or uncheck the "Use FIFO buffers" checkbox.
+11. Select OK to close the Advanced Port Settings Window.
+12. Select OK to close the Communications Port Properties Window.
+13. Select OK to close the System Properties Window.
+14. Close the Control Panel Window.
+15. Open the Configuration Window of Mdbus and set the Tx and Rx FIFOS size accordingly.
+
+The machine must be rebooted for any FIFO changes to take effect.
+
+Under Windows NT only the "Use FIFO" option can be enabled or disabled via the Control Panel.  
+
+The procedure is as follows:
+1.   Click on Start.
+2.   Click on Settings.
+3.   Click on Control Panel.
+4.   Double Click on Ports Icon.
+5.   Double Click on the communications port to be changed.
+6.   Click on the Advanced pushbutton.
+7.   Uncheck or Check "FIFO Enabled".
+8.   Select OK to close the Advanced Setting for the communications port.
+9.   Select OK to close Window with Settings for the communication port.
+10. Select Close to close Ports Window.
+11. Close the Control Panel Window.
+12. Open the Configuration Window of Mdbus and set the Tx and Rx FIFOS size accordingly.  If the FIFO enabled was unchecked set the TX and RX buffer sizes to 1.  If the FIFO was checked, obtain the size as follows:
+The viewing and changing of the size of the buffers can be done in the registry only under Windows NT and care must be taken to not make a mistake or NT may have to be reloaded.  If the buffer sizes are changed, the machine must be rebooted for the changes to take effect.
+
+The following describes under NT the keys for the Rx and Tx FIFO values in the registry.  These values can then be viewed/changed using the registry editor regedit.  The registry should be exported for backup from the editor before making changes in case of error.
+
+1. Tx Fifo (it can be found as follows)
+    HKEY_LOCAL_MACHINE
+        SYSTEM
+            CurrentControlSet
+                Services
+                    Serial
+                        TxFIFO
+2. Rx Fifo (it can be found as follows)
+    HKEY_LOCAL_MACHINE
+        SYSTEM
+            CurrentControlSet
+                Services
+                    Serial
+                        RxFIFO
+
+
+Open Mdbus Configuration Window and set the Tx and Rx FIFOS size accordingly.
+
+The machine must be rebooted for any FIFO changes to take effect.
+
+The following is the procedure under Windows 2000 and XP to view/change the Tx and Rx FIFO buffer size.
+
+1.   Click on Start.
+2.   Click on Settings.
+3.   Click on Control Panel.
+3.   Double Click on System Icon.
+4.   Click on Hardware Tab.
+5.   Click on Device Manager Pushbutton.
+6.   Click on Ports (Com & LPT).
+7.   Double Click on The appropriate Comm. Port (ex. Communications Port (COM1).
+8.   Click on the Port Settings Tab.
+9.   Click on the Advanced Pushbutton.
+10. Either note the present size of the Buffers, change the sizes of the Buffers, or uncheck the "Use FIFO buffers" checkbox.
+11. Select OK to close the Advanced Settings for the communications port.
+12. Select OK to close the Communications Port Properties for the communications port.
+13. Close Device Manager Window.
+14. Click OK on System Properties Window.
+15. Close Control Panel Window
+16. Open Mdbus Configuration Window and set the Tx and Rx FIFOS size accordingly.
+
+The machine must be rebooted for any FIFO changes to take effect.
+
+Mdbus sets its receive message inter character timeout greater then the Rx FIFO value times the character time times 2.
+
+In summary, the following problems can occur if the TX and RX Buffer sizes are not set correctly or their values are not recorded properly in Mdbus.
+
+TX FIFO
+This value is only of importance if RTS keying is used with Mdbus.  If the TX FIFO value is less than it should be in Mdbus, Mdbus will lower RTS before all the characters are transmitted.  If RTS from the Mdbus port to a Modbus device is wired directly to CTS, or a Radio or RS-485 converter is being used, the receiving device will only receive characters until RTS is lowered.  If the TX FIFO value is more than it should be, Mdbus will hold RTS high too long and if the device responds quickly, Mdbus may not be prepared to receive data from the Modbus device.  Mdbus clears its receive buffer after RTS is dropped when RTS TX Delay value is nonzero (RTS keying enabled).
+
+RX FIFO
+The RX FIFO value is used by Mdbus to help determine the end of a message.  If Mdbus is being used in Monitor or Slave Mode, it is important to set the RX FIFO as low as possible (1 is best) and set this value in the Mdbus Configuration Window.  This allows Mdbus to determine the end of a message in the shortest possible time.  If RX FIFO value in Mdbus is too short, it will process a message too quickly and if the RX FIFO value is too long, there will be a delay before a message is processed. 

@@ -1,0 +1,14 @@
+An Excel example spreadsheet (suitable for versions 5 and above)
+test.xls has been provided to demonstrate some of the DDE
+capability of Mdbus.  In order to set up Mdbus with the appropriate
+configuration which will dump data into test.xls, start up Mdbus
+and click on the Configuration menu item.  This will bring up the
+Configuration Window.  Type test in the edit box in the Master/Slave
+Configuration box and click on the "Load File" button.  This
+will load a preset configuration with the required Master Only
+DDE parameters.  Now set up the register definition, baud rate,
+and comm. port to the device being polled and press Ok.  Now
+close Mdbus and click on the Excel Example to activate Excel
+which will in turn start up Mdbus.  Now click the On menu item
+and data will now be dumped into test.xls and the macro
+test_beep will be executed each scan.
